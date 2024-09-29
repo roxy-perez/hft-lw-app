@@ -1,6 +1,7 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-secondary-500 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-secondary-600 dark:text-gray-200 leading-tight">
             {{ __('Cuentas') }}
         </h2>
     </x-slot>
@@ -11,10 +12,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100 font-mono">
-                  @livewire('accounts.show-accounts')
-                </div>
+            <div class="p-6 text-secondary-900 dark:text-secondary-100 font-mono">
+                <livewire:accounts.show-accounts :accounts="$accounts"/>
             </div>
         </div>
     </div>
