@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Devdojo\Auth\Http\Controllers\LogoutController;
 
-Route::view('/', 'welcome');
+Route::redirect('/', '/dashboard');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -16,6 +16,10 @@ Route::view('profile', 'profile')
 Route::view('accounts', 'accounts.index')
     ->middleware(['auth'])
     ->name('accounts.index');
+
+Route::view('accounts/create', 'accounts.create')
+    ->middleware(['auth'])
+    ->name('accounts.create');
 
 // Authentication routes for TheDevDojo
 Route::prefix('auth')->group(function () {

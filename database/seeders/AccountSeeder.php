@@ -19,6 +19,14 @@ class AccountSeeder extends Seeder
 
         // Para cada usuario, crear cuentas
         foreach ($users as $user) {
+            // Crear una cuenta corriente
+            $checkingAccount = Account::create([
+                'user_id' => $user->id,
+                'name' => 'Cuenta Corriente',
+                'balance' => 1000.00,
+                'type' => 'checking',
+            ]);
+
             // Crear una cuenta de efectivo
             $cashAccount = Account::create([
                 'user_id' => $user->id,
