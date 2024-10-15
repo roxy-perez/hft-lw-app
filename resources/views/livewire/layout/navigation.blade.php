@@ -41,7 +41,7 @@ new class extends Component {
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-secondary-700 bg-tertiary-100 shadow-md transition duration-150 ease-in-out ring ring-offset-2 ring-secondary-200 rounded-full hover:bg-tertiary-200 cursor-pointer focus:outline-none">
                             <div x-data="{ name: '{{ auth()->user()->name }}' }" x-text="name"
                                  x-on:profile-updated.window="name = $event.detail.name"></div>
 

@@ -55,11 +55,11 @@ new class extends Component {
                         <hr class="h-px my-2 border-1 border-tertiary-200 dark:border-tertiary-700"/>
                         <div class="flex items-center justify-end text-xs">
                             <div class="px-3 py-2">
-                                <x-button label="Ver más" right-icon="eye" interaction="secondary"
-                                          class="hidden md:inline-flex items-center"/>
+                                <x-button emerald label="Ver más" rounded="full"  right-icon="eye" interaction="secondary"
+                                          class="hidden mr-2 ring ring-offset-2 ring-secondary-300 items-center md:inline-flex"/>
                                 <x-mini-button class="md:hidden" rounded primary icon="eye"/>
-                                <x-button label="Borrar" right-icon="trash" interaction="secondary"
-                                          class="hidden md:inline-flex" red/>
+                                <x-button label="Borrar" rounded="full" right-icon="trash" interaction="secondary"
+                                          class="hidden ring ring-offset-2 ring-secondary-300 md:inline-flex" red/>
                                 <x-mini-button class="md:hidden" rounded red icon="trash"/>
                             </div>
                         </div>
