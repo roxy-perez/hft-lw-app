@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Devdojo\Auth\Http\Controllers\LogoutController;
+use Livewire\Volt\Volt;
 
 Route::redirect('/', '/dashboard');
 
@@ -20,6 +21,10 @@ Route::view('accounts', 'accounts.index')
 Route::view('accounts/create', 'accounts.create')
     ->middleware(['auth'])
     ->name('accounts.create');
+
+Volt::route('accounts/{account}/edit', 'accounts.edit')
+    ->middleware(['auth'])
+    ->name('accounts.edit');
 
 // Authentication routes for TheDevDojo
 Route::prefix('auth')->group(function () {

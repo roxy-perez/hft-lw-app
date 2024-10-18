@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Volt\Component;
+use WireUi\Traits\WireUiActions;
 
 new class extends Component {
+    use WireUiActions;
+
     public $accountName;
     public $accountType;
     public $balance;
@@ -37,6 +40,11 @@ new class extends Component {
             'updated_at' => now()
         ]);
 
+        $this->notification()->success(
+            $title = __('Account created'),
+            $description = __('The account has been successfully created.')
+        );
+
         redirect()->route('accounts.index');
     }
 }; ?>
@@ -60,9 +68,11 @@ new class extends Component {
                          errorless/>@error('balance') <span
                     class="text-sm text-tertiary-500">{{ $message }}</span> @enderror
                 <div class="pt-4">
-                    <x-button wire:click="submitAccount" lg rounded right-icon="check"
-                              class="font-semibold bg-primary-500 hover:bg-tertiary-400" spinner>Guardar
+                    <x-button type="submit" rounded="full" right-icon="check"
+                              class="font-semibold bg-primary-500 hover:bg-tertiary-400 ring ring-offset-2 ring-secondary-300" spinner="submitAccount">
+                        {{__('Save')}}
                     </x-button>
+                    <x-notifications />
                 </div>
             </form>
         </x-card>
