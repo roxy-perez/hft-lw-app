@@ -4,7 +4,13 @@ use Illuminate\Support\Facades\Route;
 use Devdojo\Auth\Http\Controllers\LogoutController;
 use Livewire\Volt\Volt;
 
-Route::redirect('/', '/dashboard');
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('dashboard');
+    } else {
+        return redirect()->route('login');
+    }
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -25,6 +31,10 @@ Route::view('accounts/create', 'accounts.create')
 Volt::route('accounts/{account}/edit', 'accounts.edit')
     ->middleware(['auth'])
     ->name('accounts.edit');
+
+Route::view('transactions', 'transactions.index')
+    ->middleware(['auth'])
+    ->name('transactions.index');
 
 // Authentication routes for TheDevDojo
 Route::prefix('auth')->group(function () {

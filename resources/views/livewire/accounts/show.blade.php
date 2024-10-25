@@ -76,7 +76,7 @@ new class extends Component {
                         <hr class="h-px my-2 border-1 border-tertiary-200 dark:border-tertiary-700"/>
                         <div class="flex items-center justify-end text-xs">
                             <div class="px-3 py-2">
-                                <x-button emerald label="Ver más" rounded="full" right-icon="eye"
+                                <x-button href="{{route('transactions.index')}}" emerald label="Ver más" rounded="full" right-icon="eye"
                                           interaction="secondary"
                                           class="hidden mr-2 ring ring-offset-2 ring-secondary-300 items-center md:inline-flex"/>
                                 <x-mini-button class="md:hidden" rounded primary icon="eye"/>
