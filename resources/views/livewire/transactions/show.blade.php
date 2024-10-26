@@ -20,6 +20,7 @@ new class extends Component {
     public function updatedSelectedAccountId($value)
     {
         $this->transactions = $value ? Transaction::where('account_id', $value)->get() : collect();
+        dd($this->transactions);
     }
 
     public function render(): mixed
@@ -41,8 +42,6 @@ new class extends Component {
             <x-select wire:model="selectedAccountId" id="accountSelect" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                 <x-select.option value="">Select an Account</x-select.option>
                 @foreach($accounts as $account)
-                    // debug or echo the account id selected
-                     {{ $account->id }}
                     <x-select.option :value="$account->id">{{ $account->name }}</x-select.option>
                 @endforeach
             </x-select>
